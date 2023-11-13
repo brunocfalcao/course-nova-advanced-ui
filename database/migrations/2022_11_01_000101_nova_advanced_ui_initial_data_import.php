@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Artisan;
 use NovaAdvancedUI\Database\Seeders\NovaAdvancedUICourseSeeder;
 
-class CourseInitialDataImport extends Migration
+class NovaAdvancedUiInitialDataImport extends Migration
 {
     public function up()
     {

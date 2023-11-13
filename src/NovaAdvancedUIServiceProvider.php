@@ -2,9 +2,7 @@
 
 namespace NovaAdvancedUI;
 
-use Brunocfalcao\Cerebrus\Cerebrus;
 use Eduka\Abstracts\Classes\EdukaServiceProvider;
-use Eduka\Nereus\NereusServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Vite;
 
