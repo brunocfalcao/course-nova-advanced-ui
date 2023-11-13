@@ -7,7 +7,6 @@ use Eduka\Abstracts\Classes\EdukaServiceProvider;
 use Eduka\Nereus\NereusServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Vite;
-use NovaAdvancedUI\Commands\ETLData;
 
 class NovaAdvancedUIServiceProvider extends EdukaServiceProvider
 {
@@ -18,8 +17,6 @@ class NovaAdvancedUIServiceProvider extends EdukaServiceProvider
         $this->customViewNamespace(__DIR__.'/../resources/views', 'course');
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-
-        $this->registerDirectives();
 
         $this->registerCommands();
 
@@ -34,26 +31,11 @@ class NovaAdvancedUIServiceProvider extends EdukaServiceProvider
     protected function registerCommands()
     {
         $this->commands([
-            ETLData::class,
         ]);
     }
 
     protected function registerBladeComponents()
     {
         Blade::componentNamespace('NovaAdvancedUI\\Views\\Components', 'masteringnova');
-    }
-
-    private function registerDirectives()
-    {
-        Blade::if('subscribedToNewsletter', function () {
-            $session = new Cerebrus;
-            $course = $session->get(NereusServiceProvider::COURSE_SESSION_KEY);
-
-            if (! $course) {
-                return false;
-            }
-
-            return $session->get('subscribed_'.$course->id.'_newsletter');
-        });
     }
 }

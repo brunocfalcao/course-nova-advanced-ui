@@ -30,27 +30,27 @@ class NovaAdvancedUICourseSeeder extends Seeder
          * current live course to the eduka course instance.
          */
         $course = Course::create([
-            'name' => 'Mastering Nova',
+            'name' => 'Nova Advanced UI',
             'admin_name' => 'Bruno Falcao',
-            'admin_email' => env('MASTERING_NOVA_EMAIL'),
-            'twitter_handle' => env('MASTERING_NOVA_TWITTER'),
+            'admin_email' => env('NOVA_ADVANCED_UI_EMAIL'),
+            'twitter_handle' => env('NOVA_ADVANCED_UI_TWITTER'),
             'provider_namespace' => 'NovaAdvancedUI\\NovaAdvancedUIServiceProvider',
         ]);
 
         $domain = Domain::create([
-            'name' => env('MASTERINGNOVA_DOMAIN'),
+            'name' => env('NOVA_ADVANCED_UI_DOMAIN'),
             'course_id' => $course->id,
         ]);
 
         // Check if the course exists or not.
         // The InitialSchemaSeeder should create the course during migration by default.
-        $course = Course::where('name', 'Mastering Nova')->first();
+        $course = Course::where('name', 'Nova Advanced UI')->first();
 
         if (! $course) {
             $course = Course::factory()->count(1)->create()->first();
 
             Domain::factory()->count(1)->create([
-                'name' => env('MASTERINGNOVA_DOMAIN'),
+                'name' => env('NOVA_ADVANCED_UI_DOMAIN'),
                 'course_id' => $course->id,
             ]);
         }
