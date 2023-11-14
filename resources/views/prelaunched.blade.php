@@ -39,20 +39,21 @@
             @else
             <p class="text-center text-lg mb-4">Subscribe for Early Access</p>
             <form method="POST" target="_self" action="{{ route('prelaunched.subscribe') }}">
-            @csrf
-            <div class="flex flex-col items-center w-full max-w-sm px-4 space-y-4">
-                <div class="w-full flex items-center bg-gray-700 p-3 rounded-md">
-                    <i data-feather="mail" class="text-gray-400 mr-3"></i>
-                    <input type="email" name="email" class="w-full bg-transparent border-none focus:outline-none placeholder-gray-400" placeholder="Enter your email">
+                @csrf
+                <div class="flex flex-col items-center w-full max-w-sm px-4 space-y-4">
+                    <div class="w-full flex items-center bg-gray-700 p-3 rounded-md">
+                        <i data-feather="mail" class="text-gray-400 mr-3"></i>
+                        <input type="email" name="email" class="w-full bg-transparent border-none focus:outline-none placeholder-gray-400" placeholder="Enter your email">
+                    </div>
+                    @error('email')<span class="text-red-500"> {{ $message }} </span>@enderror
+                    <button class="w-full flex items-center justify-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <i data-feather="send" class="text-white mr-2"></i>
+                        Subscribe
+                    </button>
                 </div>
-                @error('email')<span class="text-red-500"> {{ $message }} </span>@enderror
-                <button class="w-full flex items-center justify-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    <i data-feather="send" class="text-white mr-2"></i>
-                    Subscribe
-                </button>
-            </div>
             </form>
             @endif
+            <p class="text-pink-500 text-right pt-4 pr-4 text-xs">pre-launch scope</p>
         </div>
     </div>
 
