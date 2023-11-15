@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Advanced UI - Early Access</title>
+    <title>{{ Nereus::course()->name }} - Thanks for buying!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <style>
@@ -33,11 +33,10 @@
         <h1 class="text-4xl font-bold mb-6">Nova Advanced UI</h1>
 
         <div class="p-6 rounded-lg bg-gray-800 bg-opacity-80">
-
             @isset($message)
-                <span class='text-red-500'>{{ $message }}</span>
+                <span class='text-red-500'>{{ Nereus::trans($message) }}</span>
             @else
-            <p class="text-center text-lg mb-4">Thanks for buying my course!</p>
+            <p class="text-center text-lg mb-4">{{ Nereus::trans('thank-you-for-buying') }}</p>
             @endisset
             <p class="text-green-500 text-right pt-4 pr-4 text-xs">launched scope</p>
         </div>

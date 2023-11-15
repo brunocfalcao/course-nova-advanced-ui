@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Advanced UI - Early Access</title>
+    <title>{{ Nereus::course()->name }} - Early Access</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <style>
@@ -35,7 +35,7 @@
         <div class="p-6 rounded-lg bg-gray-800 bg-opacity-80">
 
             @if(session('message') !== null)
-                {{ session('message') }}
+                {{ Nereus::trans(session('message')) }}
             @else
             <p class="text-center text-lg mb-4">Subscribe for Early Access</p>
             <form method="POST" target="_self" action="{{ route('prelaunched.subscribe') }}">
