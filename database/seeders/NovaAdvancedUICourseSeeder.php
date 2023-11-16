@@ -4,7 +4,9 @@ namespace NovaAdvancedUI\Database\Seeders;
 
 use Eduka\Cube\Models\Course;
 use Eduka\Cube\Models\Domain;
+use Eduka\Cube\Models\Variant;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class NovaAdvancedUICourseSeeder extends Seeder
 {
@@ -21,9 +23,15 @@ class NovaAdvancedUICourseSeeder extends Seeder
             'admin_email' => env('NOVA_ADVANCED_UI_EMAIL'),
             'twitter_handle' => env('NOVA_ADVANCED_UI_TWITTER'),
             'provider_namespace' => 'NovaAdvancedUI\\NovaAdvancedUIServiceProvider',
-            'payment_provider_variant_id' => env('NOVA_ADVANCED_UI_VARIANT_ID'),
-            'payment_provider_store_id' => env('NOVA_ADVANCED_UI_STORE_ID'),
-            'course_price' => env('NOVA_ADVANCED_UI_PRICE'),
+            'lemonsqueezy_store_id' => env('NOVA_ADVANCED_UI_STORE_ID'),
+        ]);
+
+        $variant = Variant::create([
+            'uuid' => (string) Str::uuid(),
+            'course_id' => $course->id,
+            'description' => 'Main course without consulting',
+            'lemonsqueezy_variant_id' => env('NOVA_ADVANCED_UI_VARIANT_ID'),
+            'is_default' => true,
         ]);
 
         $domain = Domain::create([
