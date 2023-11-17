@@ -40,16 +40,7 @@
             <p class="text-center text-lg mb-4">Please proceed to buy the course</p>
             <form class="pb-4" method="GET" action="{{ route('purchase.checkout') }}" target="_self" action="#">
                 @csrf
-                <div class="flex flex-col items-center w-full max-w-sm px-4 space-y-4">
-                    <button class="w-full flex items-center justify-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        <i data-feather="send" class="text-white mr-2"></i>
-                        Purchase Default (no variant passed) (local price - 55)
-                    </button>
-                </div>
-            </form>
-            <form class="pb-4" method="GET" action="{{ route('purchase.checkout') }}" target="_self" action="#">
-                @csrf
-                <input name="variant" type="hidden" value="{{ Nereus::course()->getDefaultVariant()->uuid }}">
+                <input name="variant" type="hidden" value="{{ Nereus::course()->variants->firstWhere('canonical', 'nova-advanced-ui-tailwindui')->uuid }}">
                 <div class="flex flex-col items-center w-full max-w-sm px-4 space-y-4">
                     <button class="w-full flex items-center justify-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         <i data-feather="send" class="text-white mr-2"></i>
@@ -59,7 +50,7 @@
             </form>
             <form class="pb-4" method="GET" action="{{ route('purchase.checkout') }}" target="_self" action="#">
                 @csrf
-                <input name="variant" type="hidden" value="{{ Nereus::course()->getDefaultVariant()->uuid }}">
+                <input name="variant" type="hidden" value="{{ Nereus::course()->variants->firstWhere('canonical', 'nova-advanced-ui-library')->uuid }}">
                 <div class="flex flex-col items-center w-full max-w-sm px-4 space-y-4">
                     <button class="w-full flex items-center justify-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         <i data-feather="send" class="text-white mr-2"></i>

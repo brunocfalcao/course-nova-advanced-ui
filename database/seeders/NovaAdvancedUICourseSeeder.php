@@ -26,19 +26,10 @@ class NovaAdvancedUICourseSeeder extends Seeder
             'lemonsqueezy_store_id' => env('COURSES_STORE_ID'),
         ]);
 
-        // Default variant.
-        $variant = Variant::create([
-            'uuid' => (string) Str::uuid(),
-            'course_id' => $course->id,
-            'description' => 'Main course default',
-            'lemonsqueezy_variant_id' => env('NOVA_ADVANCED_UI_MAIN_VARIANT_DEFAULT_ID'),
-            'lemonsqueezy_price_override' => env('NOVA_ADVANCED_UI_MAIN_VARIANT_DEFAULT_PRICE'),
-            'is_default' => true,
-        ]);
-
         // TailwindUI variant.
         $variant = Variant::create([
             'uuid' => (string) Str::uuid(),
+            'canonical' => 'nova-advanced-ui-tailwindui',
             'course_id' => $course->id,
             'description' => 'Main course - Tailwind UI',
             'lemonsqueezy_variant_id' => env('NOVA_ADVANCED_UI_MAIN_VARIANT_TAILWIND_UI_ID'),
@@ -47,6 +38,7 @@ class NovaAdvancedUICourseSeeder extends Seeder
         // Just Library and Videos variant.
         $variant = Variant::create([
             'uuid' => (string) Str::uuid(),
+            'canonical' => 'nova-advanced-ui-library',
             'course_id' => $course->id,
             'description' => 'Main course - Just Library and Videos',
             'lemonsqueezy_variant_id' => env('NOVA_ADVANCED_UI_MAIN_VARIANT_LIBRARY_AND_VIDEOS_ID'),
