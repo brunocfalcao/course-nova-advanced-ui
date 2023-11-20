@@ -4,7 +4,6 @@ namespace NovaAdvancedUI;
 
 use Eduka\Abstracts\Classes\EdukaServiceProvider;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\Vite;
 
 class NovaAdvancedUIServiceProvider extends EdukaServiceProvider
 {
