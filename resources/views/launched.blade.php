@@ -6,6 +6,7 @@
     <title>{{ Nereus::course()->name }} - Early Access</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         .space-pattern {
             background-color: #000000;
@@ -31,7 +32,7 @@
 
     <div class="flex flex-col space-y-8 items-center justify-center min-h-screen">
 
-        <img src="{{ Vite::image('logo.png') }}" />
+        <img src="{{ Vite::image('resources/images/logo.png') }}" />
         <h1 class="text-4xl font-bold mb-6">Nova Advanced UI</h1>
 
         <div class="p-6 rounded-lg bg-gray-800 bg-opacity-80">

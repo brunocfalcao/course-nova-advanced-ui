@@ -10,8 +10,6 @@ class NovaAdvancedUIServiceProvider extends EdukaServiceProvider
 {
     public function boot()
     {
-        Vite::macro('image', fn (string $asset) => $this->asset("resources/images/{$asset}"));
-
         $this->customViewNamespace(__DIR__.'/../resources/views', 'course');
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
