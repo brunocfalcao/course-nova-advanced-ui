@@ -4,6 +4,7 @@ namespace NovaAdvancedUI\Database\Seeders;
 
 use Eduka\Cube\Models\Course;
 use Eduka\Cube\Models\Domain;
+use Eduka\Cube\Models\User;
 use Eduka\Cube\Models\Variant;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -23,7 +24,7 @@ class NovaAdvancedUICourseSeeder extends Seeder
             'admin_email' => env('NOVA_ADVANCED_UI_EMAIL'),
             'twitter_handle' => env('NOVA_ADVANCED_UI_TWITTER'),
             'provider_namespace' => 'NovaAdvancedUI\\NovaAdvancedUIServiceProvider',
-            'lemonsqueezy_store_id' => env('COURSES_STORE_ID'),
+            'lemonsqueezy_store_id' => env('LEMON_SQUEEZY_STORE_ID'),
         ]);
 
         // TailwindUI variant.
@@ -49,5 +50,15 @@ class NovaAdvancedUICourseSeeder extends Seeder
             'name' => env('NOVA_ADVANCED_UI_DOMAIN'),
             'course_id' => $course->id,
         ]);
+
+        // Create admin user.
+        $admin = User::create([
+            'name' => 'Bruno Falcao',
+            'email' => env('NOVA_ADVANCED_UI_EMAIL'),
+            'password' => bcrypt('password'),
+        ]);
+
+        // Attach user to course.
+        $course->users()->attach($admin->id);
     }
 }
