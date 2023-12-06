@@ -11,8 +11,6 @@ use Illuminate\Support\Str;
 
 class NovaAdvancedUICourseSeeder extends Seeder
 {
-    private static $videoIndex = 0;
-
     public function run(): void
     {
         $course = Course::create([
@@ -53,7 +51,7 @@ class NovaAdvancedUICourseSeeder extends Seeder
 
         // Create admin user.
         $admin = User::create([
-            'name' => 'Bruno Falcao',
+            'name' => 'Bruno Falcao (NAUI)',
             'email' => env('NOVA_ADVANCED_UI_EMAIL'),
             'password' => bcrypt('password'),
         ]);
