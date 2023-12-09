@@ -55,7 +55,5 @@ class NovaAdvancedUICourseSeeder extends Seeder
             'email' => env('NOVA_ADVANCED_UI_EMAIL'),
             'password' => bcrypt('password'),
         ]);
-
-        $admin->variants()->attach($variant);
     }
 }
